@@ -20,7 +20,10 @@ export class AllUserTweetsComponent implements OnInit {
   allTweetData: any;
 
   ngOnInit(): void {
-    this.tweetService.getAllUserTweets(1).subscribe((resp)=>{
+    if(this.loginData==null){
+        this.router.navigate(['login']);
+    }
+    this.tweetService.getAllUserTweets(this.loginData.userId).subscribe((resp)=>{
       console.log(resp);
       this.allTweetData = resp;
     });
@@ -30,15 +33,16 @@ export class AllUserTweetsComponent implements OnInit {
     console.log(tweetObject);
     this.router.navigate(['allComments'], {
       state:{
-        data: tweetObject
+        data: tweetObject,
+        loginData: this.loginData
       }
     });
   }
 
   public postTweet(tweetData:any){
-    this.tweetService.postTweet(tweetData, 1).subscribe(resp=>{
+    this.tweetService.postTweet(tweetData, this.loginData.userId).subscribe(resp=>{
       console.log(resp);
-      this.tweetService.getAllUserTweets(1).subscribe((resp)=>{
+      this.tweetService.getAllUserTweets(this.loginData.userId).subscribe((resp)=>{
         console.log(resp);
         this.allTweetData = resp;
       });

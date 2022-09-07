@@ -11,12 +11,15 @@ export class AllCommentsComponent implements OnInit {
 
   tweetId: any;
   tweetObject: any;
+  loginData: any;
   allCommentData: any;
 
   constructor(private router: Router,
     private tweetService: TweetService) { 
     const data = router.getCurrentNavigation()?.extras.state?.['data'];
+    const loginData = router.getCurrentNavigation()?.extras.state?.['loginData'];
     this.tweetObject = data;
+    this.loginData = loginData;
     this.tweetId = data.tweetId;
   }
 
@@ -28,12 +31,20 @@ export class AllCommentsComponent implements OnInit {
   }
 
   public postComment(commentData:any){
-    this.tweetService.postComment(this.tweetObject, 1 ,commentData).subscribe(resp=>{
+    this.tweetService.postComment(this.tweetObject, this.tweetObject.userId ,commentData).subscribe(resp=>{
       console.log(resp);
       this.tweetService.getAllComments(this.tweetId).subscribe((resp)=>{
         console.log(resp);
         this.allCommentData = resp;
       });
+    });
+  }
+
+  public backToTweet(){
+    this.router.navigate(['allUserTweets'], {
+      state:{
+        data: this.loginData
+      }
     });
   }
 
