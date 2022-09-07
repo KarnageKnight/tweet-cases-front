@@ -1,0 +1,12 @@
+<div>
+    {{loginData|json}}
+
+</div>
+<div>
+    <textarea #titleInput placeholder="Post a tweet"></textarea>
+    <button (click)="postTweet(titleInput.value)">Post Tweet</button>
+</div>
+<div *ngFor="let item of allTweetData">
+    {{item|json}}
+    <button (click)="getComments(item)">View Comments</button>
+</div>

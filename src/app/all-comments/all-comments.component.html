@@ -1,0 +1,9 @@
+<a routerLink="/allUserTweets" routerLinkActive="active">back</a>
+
+<div>
+    <textarea #titleInput placeholder="Post a comment"></textarea>
+    <button (click)="postComment(titleInput.value)">Post Comment</button>
+</div>
+<div *ngFor="let item of allCommentData">
+    {{item|json}}
+</div>
