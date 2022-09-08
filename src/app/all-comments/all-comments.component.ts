@@ -24,12 +24,18 @@ export class AllCommentsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //If no tweetId found in cases of page reloads, then goes back to login page
+    if(this.tweetId==null){
+      this.router.navigate(['login']);
+    }
+    //Calls /getAllComments endpoint for list of comments for the tweet
     this.tweetService.getAllComments(this.tweetId).subscribe((resp)=>{
       console.log(resp);
       this.allCommentData = resp;
     });
   }
 
+  //Calls /postComment endpoint and sends the commentData Load for POST method
   public postComment(commentData:any){
     this.tweetService.postComment(this.tweetObject, this.tweetObject.userId ,commentData).subscribe(resp=>{
       console.log(resp);
@@ -40,6 +46,7 @@ export class AllCommentsComponent implements OnInit {
     });
   }
 
+  //Goes back to tweets page
   public backToTweet(){
     this.router.navigate(['allUserTweets'], {
       state:{

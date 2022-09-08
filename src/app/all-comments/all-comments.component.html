@@ -1,9 +1,17 @@
-<button (click)="backToTweet()">Back</button>
+<div [ngClass]="'main-div'">
+    <button (click)="backToTweet()">Back</button>
 
-<div>
-    <textarea #titleInput placeholder="Post a comment"></textarea>
-    <button (click)="postComment(titleInput.value)">Post Comment</button>
-</div>
-<div *ngFor="let item of allCommentData">
-    {{item|json}}
+    <div [ngClass]="'post-tweet'">
+        <textarea #titleInput placeholder="Post a comment"></textarea>
+        <button [ngClass]="'post-button'" (click)="postComment(titleInput.value)">Post Comment</button>
+    </div>
+    <div [ngClass]="'each-tweet'" *ngFor="let item of allCommentData">
+        <!-- {{item|json}} -->
+        <!-- TODO: Change UserId to UserName -->
+        <div [ngClass]="'user-id'">     User#{{item.userId}}
+        </div>
+        <div [ngClass]="'actual-tweet'">
+        {{item.commentData}}
+        </div>
+    </div>
 </div>

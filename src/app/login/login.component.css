@@ -1,0 +1,38 @@
+.main-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(2,160,221,1) 51%, rgba(0,104,255,1) 100%);
+}
+.login-card{
+    background-color: white;
+    padding: 40px;
+    border: 1px solid gray;
+    border-radius:10px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: auto;
+    box-shadow:0 4px 4px rgba(0,0,0,0.1);
+
+}
+
+h2{
+    margin:auto;
+    padding: 20px;  
+    color:#090979  
+}
+input{
+    margin: 10px 20px;
+}
+span{
+    margin:0px 20px;
+}
+button{
+    margin:10px 60px;
+    padding: 6px 0px;
+    background: aliceblue;
+    border-radius: 5px;
+}

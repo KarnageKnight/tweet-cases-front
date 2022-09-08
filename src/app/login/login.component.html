@@ -1,3 +1,9 @@
-<h1>Login</h1>
-    <input type="text" #userName>
+<div [ngClass]="'main-div'">
+    <div [ngClass]="'login-card'">
+        <h2>LOGIN</h2>
+        <span>Username:</span>
+        <input type="text" #userName>
+
    <button (click)="onClickSubmit(userName.value)">Login</button>
+</div>
+</div>

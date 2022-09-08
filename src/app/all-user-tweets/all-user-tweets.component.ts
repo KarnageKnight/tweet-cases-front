@@ -20,15 +20,19 @@ export class AllUserTweetsComponent implements OnInit {
   allTweetData: any;
 
   ngOnInit(): void {
+    //If no loginData found in cases of page reloads, then goes back to login page
     if(this.loginData==null){
         this.router.navigate(['login']);
     }
+
+    //Calls /getAllUserTweets endpoint for list of tweets for the user
     this.tweetService.getAllUserTweets(this.loginData.userId).subscribe((resp)=>{
       console.log(resp);
       this.allTweetData = resp;
     });
   }
 
+  //Navigates to comments page and sends the loginData an tweet Object to the page for further processing
   public getComments(tweetObject: any){
     console.log(tweetObject);
     this.router.navigate(['allComments'], {
@@ -47,6 +51,11 @@ export class AllUserTweetsComponent implements OnInit {
         this.allTweetData = resp;
       });
     });
+  }
+
+  //Logout button to go back to login page
+  public backToLogin(){
+    this.router.navigate(['login']);
   }
 
 }

@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
     
   }
 
+  //clicking on submit calls /checkUserName endpoint
   public onClickSubmit(userName: any){
     console.log(userName);
     this.tweetService.loginUser(userName).subscribe(resp=>{

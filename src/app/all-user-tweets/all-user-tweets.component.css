@@ -1,0 +1,64 @@
+.main-div{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    min-height: 100%;
+    /* width: 100vh; */
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,58,121,1) 0%, rgba(2,131,221,1) 27%, rgba(0,104,255,1) 100%);
+background-repeat: repeat;
+}
+.post-tweet{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;}
+
+    .each-tweet{
+display:flex ;
+border: 1px solid black;
+padding: 20px 20px;
+margin: 30px;
+border-radius: 10px;
+background: white;
+flex-direction: column;
+
+
+}
+.user-data{
+       background-color: lightsteelblue;
+    width: 100%;
+    padding: 10px 50px;
+    border-bottom: 2px solid black;
+}
+.user-id{
+    background: aliceblue;
+    padding: 4px;
+    border-radius: 4px;
+    width: fit-content;
+    color: #090979;
+}
+.actual-tweet{
+    padding: 10px;
+    border: 1px solid #090979;
+    margin: 10px;
+    border-radius: 10px;
+}
+.get-comments-button{
+    margin: 0px 40%;
+    padding: 10px;
+    background: aliceblue;
+    border-radius: 10px;
+}
+
+.post-button{
+    padding: 10px;
+    background: aliceblue;
+    border-radius: 10px;
+}
+textarea{
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background: #d0e7ff;
+}

@@ -1,12 +1,22 @@
-<div>
-    {{loginData|json}}
+<div [ngClass]="'main-div'">
+    <div [ngClass]="'user-data'">
+    <!-- Change userId to  -->
+        Welcome {{loginData.userName}} !
+        <button (click)="backToLogin()">Logout</button>
+    </div>
+    <div [ngClass]="'post-tweet'">
+        <textarea #titleInput placeholder="Post a tweet"></textarea>
+        <button [ngClass]="'post-button'" (click)="postTweet(titleInput.value)">Post Tweet</button>
+    </div>
+    <div [ngClass]="'each-tweet'" *ngFor="let item of allTweetData">
+        <!-- tweetId -- {{item.tweetId}} -->
+        <div [ngClass]="'user-id'">     {{item.userName}}
+        </div>
+        <div [ngClass]="'actual-tweet'">
+        {{item.tweetData}}
+        </div>
 
-</div>
-<div>
-    <textarea #titleInput placeholder="Post a tweet"></textarea>
-    <button (click)="postTweet(titleInput.value)">Post Tweet</button>
-</div>
-<div *ngFor="let item of allTweetData">
-    {{item|json}}
-    <button (click)="getComments(item)">View Comments</button>
+        <!-- tweetId": 1, "userId": 1, "tweetData": "This is a sample tweet"  -->
+        <button [ngClass]="'get-comments-button'" (click)="getComments(item)">View Comments</button>
+    </div>
 </div>
